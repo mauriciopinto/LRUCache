@@ -1,5 +1,5 @@
 # LRUCache
-##Data structures:
+# # Data structures:
 LRU Cache was implemented as the `LRUCache` class:
 ```
 class LRUCache {
