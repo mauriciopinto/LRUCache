@@ -17,6 +17,8 @@ class Hash {
                 Node *nodes_ptr[HASH_SIZE];
         ...
 ```
+The **hash function** used for generating keys was a simple `key mod (HASH_SIZE)`.
+
 The `LRUCache` class also makes use of a **doubly-linked** list, keeping track of the `least_recent` and `most_recent` nodes. These were used to implement its LRU eviction policy. `most_recent` served as the list's head and `least_recent`as the list's tail.
 
 The `Node` structured served as both hash table nodes (pairs) and linked list nodes (elements). It was implemented as follows:
