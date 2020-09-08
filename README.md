@@ -33,7 +33,7 @@ struct Node {
 ```
 The `active` attribute was used to keep track of which nodes were actually being used, in case collision ever occurs between distinct hash keys. This way, all the `hash_delete` method does is change this value to zero.
 ## Compilation
-The source code is compiled with GNU compiler collection's C++ compiler through the use of a makefile. Running the following commands on the source directory generates the corresponding object and executable files and run the main program.
+The source code is compiled with GNU compiler collection's C++ compiler through the use of a makefile. Running the following commands on the source directory generates the corresponding object and executable files and run the main tests.
 ```
 make
 ./lru_cache_tests
