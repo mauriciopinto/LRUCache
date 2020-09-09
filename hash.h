@@ -1,11 +1,12 @@
 #include "node.h"
+#define HASH_SIZE 1000
 class Hash {
         private:
                 unsigned size;
                 Node *nodes_ptr[HASH_SIZE];
-	protected:	
+	protected:
+		Node *get_hash_node (string key);	
 		unsigned long hash (string key);
-		Node *get_hash_node (string key);
         public:
                 Hash () : size (0) {
                         for (int i = 0; i < HASH_SIZE; i++)

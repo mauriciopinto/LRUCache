@@ -6,7 +6,7 @@ DEPS=node.h hash.h lru_cache.h
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: $(ALLOBJ)
+lru_cache_tests: $(ALLOBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 .PHONY: clean
 
