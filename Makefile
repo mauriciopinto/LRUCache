@@ -11,5 +11,5 @@ lru_cache_tests: $(ALLOBJ)
 .PHONY: clean
 
 clean:
-	rm -f main
+	rm -f lru_cache_tests
 	rm -f $(ALLOBJ)

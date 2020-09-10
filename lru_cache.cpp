@@ -1,5 +1,9 @@
 #include "lru_cache.h"
 
+/* Inserts a key value pair into the LRUCache instance. Takes
+ * O(1) times, as it calls the get_hash_node (), hash_insert () and
+ * hash_delete () subroutines, which all take O(1). It then verifies 
+ * certain conditions to reorganize the data. */
 void LRUCache::insertKeyValuePair (string key, int value) {
 	Node *new_node = hash.get_hash_node (key);
         if (new_node) {                                 // If key exists
@@ -39,17 +43,38 @@ void LRUCache::insertKeyValuePair (string key, int value) {
         most_recent = new_node;                 // Key becomes most recent
 }
 
+
+/* Searches for the node corresponding to KEY and
+ * returns its value. As it only calls for the
+ * get_hash_node procedure, which takes O(key.size),
+ * we can say it takes O(1) time. */
 int LRUCache::getValueFromKey (string key) {
 	Node *node = hash.get_hash_node (key);
+	if (!node)
+		return -1;
+	if (node != most_recent) {
+        	if (node == least_recent)                   // If key is least recent, prev
+        		least_recent = least_recent->prev;      // becomes least recent
+        	if (node->prev)                             // If key is within the middle of
+        		node->prev->next = node->next;  // list, update prev and next pointer
+        	if (node->next)
+                	node->next->prev = node->prev;
+        	node->next = most_recent;                   // most recent becomes the key's next
+        	most_recent->prev = node;                   // most recent prev becomes key
+        	most_recent = node;                         // new key becomes most recent
+	}
 	return node->value;
 }
 
+/* Returns most recent key. Takes O(1) because we are 
+ * saving the most recent key in a pointer variable. */
 string LRUCache::getMostRecentKey () {
 	if (!most_recent)
         	return "none";
         return most_recent->key;
 }
 
+/* Optional functionality. Returns least recent key. */
 string LRUCache::getLeastRecentKey () {
         if (!least_recent)
 		return "none";

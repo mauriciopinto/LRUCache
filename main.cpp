@@ -3,13 +3,13 @@
 int main () {
 	LRUCache lru (3);
 	lru.insertKeyValuePair ("b", 2);
-	lru.insertKeyValuePair ("c", 3);
 	lru.insertKeyValuePair ("a", 1);
+	lru.insertKeyValuePair ("c", 3);
+	cout << "most recent key: " << lru.getMostRecentKey () << endl;
+	cout << "a: " << lru.getValueFromKey ("a") << endl;
+	cout << "most recent key: " << lru.getMostRecentKey () << endl;
+	lru.insertKeyValuePair ("d", 4);
+	cout << "b: " << lru.getValueFromKey ("b") << endl;
 	lru.insertKeyValuePair ("a", 5);
-	lru.insertKeyValuePair ("f", 1);
-	lru.insertKeyValuePair ("c", 4);
-	lru.insertKeyValuePair ("f", 2);
-	lru.insertKeyValuePair ("c", 7);
-	cout << lru.getMostRecentKey () << endl;
-	cout << lru.getLeastRecentKey () << endl;
+	cout << "a: " << lru.getValueFromKey ("a") << endl;
 }
