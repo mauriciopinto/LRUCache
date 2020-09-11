@@ -36,6 +36,7 @@ The `active` attribute was used to keep track of which nodes were actually being
 The time complexity for the `insertKeyValuePair`, `getValueFromKey` and `getMostRecentKey` methods is O(1). We start by defining the worst-case runtime for the `Hash` class' methods:
 - The `hash` method receives a key and generates a hash value by adding the binary values of all the characters in the key, and then finding the remainder of this value divided by `HASH_SIZE`. This method takes **O (key.size)**, but for practical reasons we will assume small sizes for keys and approximate it to **O(1)**.
 - The `get_hash_node`, `hash_insert` and `hash_delete` call the `hash` method and execute constant-time operations afterward, so the time complexity for these three methods is **O(1)**.
+
 The worst-case runtime for the `LRUCache` class' methods is directly related to the worst-case runtimes of the `Hash` class' methods:
 -The `insertKeyValuePair` method makes calls to the `get_hash_node`, `hash_insert` and `hash_delete` subroutines, which all run in **O(1)**.
 -The `getValueFromKey` method makes a call to the `get_hash_node` subroutine, which runs in **O(1)**.
