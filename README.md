@@ -38,10 +38,10 @@ The time complexity for the `insertKeyValuePair`, `getValueFromKey` and `getMost
 - The `get_hash_node`, `hash_insert` and `hash_delete` call the `hash` method and execute constant-time operations afterward, so the time complexity for these three methods is **O(1)**.
 
 The worst-case runtime for the `LRUCache` class' methods is directly related to the worst-case runtimes of the `Hash` class' methods:
--The `insertKeyValuePair` method makes calls to the `get_hash_node`, `hash_insert` and `hash_delete` subroutines, which all run in **O(1)**.
--The `getValueFromKey` method makes a call to the `get_hash_node` subroutine, which runs in **O(1)**.
--All the `getMostRecentKey` method does is dereference the `most_recent` node and update some pointers. This takes constant time **O(1)**.
--All the `getLeastRecentKey` method does is dereference the `least_recent` node and update some pointers. This takes constant time **O(1)**.
+- The `insertKeyValuePair` method makes calls to the `get_hash_node`, `hash_insert` and `hash_delete` subroutines, which all run in **O(1)**.
+- The `getValueFromKey` method makes a call to the `get_hash_node` subroutine, which runs in **O(1)**.
+- All the `getMostRecentKey` method does is dereference the `most_recent` node and update some pointers. This takes constant time **O(1)**.
+- All the `getLeastRecentKey` method does is dereference the `least_recent` node and update some pointers. This takes constant time **O(1)**.
 ## Compilation
 The source code is compiled with GNU compiler collection's C++ compiler through the use of a makefile. Running the following commands on the source directory generates the corresponding object and executable files and runs the main tests.
 ```
